@@ -94,8 +94,8 @@ function update(req, res){
 function deleteR(req, res){
     const id = req.params.id
     const userId = 1
-
-    models.Post.findByPk(id).then(result=>{
+    
+    models.Post.findOne({where:{id:id}}).then(result=>{
         if(result){
             models.Post.destroy({where: {id:id, userId: userId}}).then(result=>{
                 res.status(200).json({
@@ -107,7 +107,7 @@ function deleteR(req, res){
                     error: error
                 })
             })
-        }else{
+        } else{
             res.status(404).json({
                 message: "System can't found that post"
             })
@@ -117,7 +117,6 @@ function deleteR(req, res){
             message: "something went wrong"
         })
     })
-
    
 }
 module.exports = {
