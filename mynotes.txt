@@ -1,0 +1,8 @@
+endpoints - route
+logics, functions - controllers
+app.js to connect them
+
+model in Plural Post
+table in singular posts
+
+bodyparser - pass json bodies and get data from req s
